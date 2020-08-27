@@ -1,0 +1,33 @@
+.creator-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.creator-container-form {
+    display: flex;
+    flex-direction: row;
+}
+
+.creator-task {
+    min-width: 400px;
+}
+
+.creator-container label {
+    display: block;
+    font-size: 14px;
+}
+
+.creator-task-title {
+    margin: 5px;
+}
+
+.creator-task-description {
+    margin: 5px;
+}
+
+.creator-task-submit {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}

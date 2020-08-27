@@ -1,0 +1,8 @@
+export const ADD_TODO = 'ADD_TODO'
+export const EDIT_TODO = 'EDIT_TODO'
+export const DELETE_TODO = 'DELETE_TODO'
+export const DELETE_ALL_TODOS = 'DELETE_ALL_TODOS'
+export const COMPLETE_TODO = 'COMPLETE_TODO'
+export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
+export const SET_SORT_BY_FIELD = 'SET_SORT_BY_FIELD'
+export const SET_SORT_ORDER = 'SET_SORT_ORDER'

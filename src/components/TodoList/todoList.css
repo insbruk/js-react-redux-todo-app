@@ -1,0 +1,5 @@
+.todo-options-container {
+    display: flex;
+    justify-content: center;
+    min-width: max-content;
+}

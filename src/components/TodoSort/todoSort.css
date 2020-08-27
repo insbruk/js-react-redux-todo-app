@@ -1,0 +1,6 @@
+.todo-sort-button-desc {
+    transform: rotate(1.5turn);
+}
+.todo-sort-button-asc {
+    transform: rotate(1.0turn);
+}
