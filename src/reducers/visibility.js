@@ -8,16 +8,22 @@ import {visibilitySettings} from './initialState';
 const visibility = (state = visibilitySettings, action) => {
   switch (action.type) {
     case SET_VISIBILITY_FILTER:
-      state.filter = action.filter
-      return state
+      return {
+        ...state,
+        filter: action.filter
+      }
 
     case SET_SORT_BY_FIELD:
-      state.sortBy = action.sortBy
-      return state
+      return {
+        ...state,
+        sortBy: action.sortBy
+      }
 
     case SET_SORT_ORDER:
-      state.sortOrder = action.sortOrder
-      return state
+      return {
+        ...state,
+        sortOrder: action.sortOrder
+      }
 
     default:
       return state
