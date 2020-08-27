@@ -8,11 +8,13 @@ import TodoSort from '../TodoSort/TodoSort'
 import TodoList from '../TodoList/TodoList'
 import TodoAdd from '../TodoAdd/TodoAdd'
 import {
+  SHOW_ALL,
   SHOW_ACTIVE,
   SHOW_COMPLETED,
 } from '../../constants/FilterTypes'
 import {
-  SORT_ASC
+  SORT_ASC,
+  SORT_DESC,
 } from '../../constants/SortTypes'
 import {connect} from 'react-redux'
 import {
@@ -76,17 +78,35 @@ App.propTypes = {
   setVisibilityFilter: PropTypes.func.isRequired,
 }
 
+const getVisibleTodos = (todos, filter) => {
+  switch (filter) {
+    case SHOW_ALL:
+      return todos
+    case SHOW_COMPLETED:
+      return todos.filter(t => t.completed)
+    case SHOW_ACTIVE:
+      return todos.filter(t => !t.completed)
+    default:
+      throw new Error('Unknown filter: ' + filter)
+  }
+}
+
+const getSortedTodos = (todos, sortOrder) => {
+  switch (sortOrder) {
+    case SORT_ASC:
+      return todos.sort((a, b) => (a.title.toLowerCase() > b.title.toLowerCase()) ? 1 : -1)
+    case SORT_DESC:
+      return todos.sort((a, b) => (a.title.toLowerCase() < b.title.toLowerCase()) ? 1 : -1)
+    default:
+      throw new Error('Unknown sort order: ' + sortOrder)
+  }
+}
+
 const mapStateToProps = state => {
   let {todos, visibility} = state
-  if (visibility.filter === SHOW_ACTIVE) {
-    todos = todos.filter(todo => !todo.completed)
-  }
-  if (visibility.filter === SHOW_COMPLETED) {
-    todos = todos.filter(todo => todo.completed)
-  }
-  visibility.sortOrder === SORT_ASC ?
-    todos.sort((a, b) => (a.title.toLowerCase() > b.title.toLowerCase()) ? 1 : -1) :
-    todos.sort((a, b) => (a.title.toLowerCase() < b.title.toLowerCase()) ? 1 : -1)
+  const {filter, sortOrder} = visibility
+  todos = getVisibleTodos(todos, filter)
+  todos = getSortedTodos(todos, sortOrder)
   return {todos, visibility}
 }
 

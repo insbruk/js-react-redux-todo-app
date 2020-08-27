@@ -13,18 +13,18 @@ import {
 
 
 const TodoFilter = (props) => {
-  let filter = props.visibility.filter
+  // let filter =
 
   const handleChange = (event) => {
-    filter = event.target.value
-    props.setVisibilityFilter(filter)
+    // filter =
+    props.setVisibilityFilter(event.target.value)
   }
 
   return (
     <FormControl>
       <Select
         id="filter-todo-list"
-        value={filter}
+        value={props.visibility.filter}
         onChange={handleChange}
       >
         <MenuItem value={SHOW_ALL}>Show All</MenuItem>
