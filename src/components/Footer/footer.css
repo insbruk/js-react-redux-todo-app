@@ -1,10 +1,9 @@
 .footer {
-    height: 50px;
-    background-color: #424242;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 1px solid #424242;
+    background-color: #424242;
+    background-clip: border-box;
 }
 
 .footer p {

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import {makeStyles} from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 import TodoFilter from '../TodoFilter/TodoFilter'
 import TodoSort from '../TodoSort/TodoSort'
 import TodoList from '../TodoList/TodoList'
@@ -32,34 +34,49 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  footer: {
+    backgroundColor: '#424242',
+  }
 }));
 
 function App(props) {
   const classes = useStyles();
   return (
     <>
-      <Grid container spacing={3} justify="center">
-        <Grid item xs={6}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <main className="main-container">
-              <div className="todo-options-container">
-                <TodoSort visibility={props.visibility} setSortOrder={props.setSortOrder}/>
-                <TodoFilter visibility={props.visibility} setVisibilityFilter={props.setVisibilityFilter}/>
-                <TodoAdd addTodo={props.addTodo}/>
-              </div>
-              <div className="todo-items-container">
-                <TodoList
-                  todos={props.todos}
-                  editTodo={props.editTodo}
-                  deleteTodo={props.deleteTodo}
-                  completeTodo={props.completeTodo}
-                />
-              </div>
-            </main>
+            <Header/>
+          </Paper>
+        </Grid>
+        <Grid container spacing={3} justify="center">
+          <Grid item xs={6}>
+            <Paper className={classes.paper}>
+              <main className="main-container">
+                <div className="todo-options-container">
+                  <TodoSort visibility={props.visibility} setSortOrder={props.setSortOrder}/>
+                  <TodoFilter visibility={props.visibility} setVisibilityFilter={props.setVisibilityFilter}/>
+                  <TodoAdd addTodo={props.addTodo}/>
+                </div>
+                <div className="todo-items-container">
+                  <TodoList
+                    todos={props.todos}
+                    editTodo={props.editTodo}
+                    deleteTodo={props.deleteTodo}
+                    completeTodo={props.completeTodo}
+                  />
+                </div>
+              </main>
+            </Paper>
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper className={`${classes.paper} ${classes.footer}`}>
+            <Footer/>
           </Paper>
         </Grid>
       </Grid>

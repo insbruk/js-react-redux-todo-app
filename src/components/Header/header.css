@@ -1,11 +1,8 @@
 .header {
-    height: 50px;
-    background-color: white;
     display: flex;
-    flex-direction: row;
     align-items: center;
+    flex-direction: row;
     justify-content: flex-end;
-    border-bottom: 1px solid #979797;
 }
 
 .header li {
