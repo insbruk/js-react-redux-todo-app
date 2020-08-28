@@ -1,3 +1,7 @@
+## Application is published on Github Pages
+
+[https://insbruk.github.io/js-react-redux-todo-app](https://insbruk.github.io/js-react-redux-todo-app)
+
 ## Available Scripts
 
 In the project directory, you can run:
